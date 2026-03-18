@@ -44,15 +44,10 @@ As a note, large data files that were generated from the Output files were not p
 </pre>
 
 
-## Part 1: Genome Assembly Partitioning
+## Summarize partitions of a genome assembly
 
-### Methods
-The *Drosophila melanogaster* genome (r6.66) was downloaded from FlyBase and partitioned into two groups: sequences ≤100kb and sequences >100kb using `faFilter`. Summary statistics were calculated with `faSize` and sequence lengths and GC% were extracted with `bioawk`. Plots were generated in R. This part of the assignment was done locally on my personal computer. 
-
-See script: [`scripts/genome_summary.sh`](scripts/genome_summary.sh)
-See plots script: [`scripts/genome_plots.R`](scripts/genome_plots.R)
-
-### Summary Statistics
+### Calculate the following for all sequences ≤100kb and >100kb
+See script: [`scripts/genome_summary.sh`](scripts/genome_summary.sh) for the script used to complete this part of the assignment. This was ran locally.
 
 | Metric | ≤100kb | >100kb |
 |---|---|---|
@@ -60,7 +55,8 @@ See plots script: [`scripts/genome_plots.R`](scripts/genome_plots.R)
 | Total Ns | 662,593 | 490,385 |
 | Total sequences | 1,863 | 7 |
 
-### Plots
+### Plots of the following for for all sequences ≤ 100kb and all sequences > 100kb
+See script: [`scripts/genome_plots.R`](scripts/genome_plots.R) for the script used to complete this part of the assignment. This was ran locally.
 
 #### Sequence Length Distribution
 ![Length histogram ≤100kb](plots/length_hist_small.png)
@@ -76,37 +72,38 @@ See plots script: [`scripts/genome_plots.R`](scripts/genome_plots.R)
 
 ---
 
-## Part 2: Genome Assembly
+## Genome Assembly
 
-### Methods
-PacBio HiFi reads (`ISO_HiFi_Shukla2025.fasta.gz`) were assembled using `hifiasm` with 16 threads. The primary contig assembly was extracted from the `.bp.p_ctg.gfa` output using `awk`.
-
-See script: [`scripts/assemble_genome.sh`](scripts/assemble_genome.sh)
-```bash
-hifiasm -o iso1_assembly -t 16 ISO_HiFi_Shukla2025.fasta.gz
-awk '/^S/{print ">"$2"\n"$3}' iso1_assembly.bp.p_ctg.gfa > iso1_assembly.bp.p_ctg.fa
-```
+### Assemble a genome using Pacbio HiFi reads 
+See script: [`scripts/assemble_genome.sh`](scripts/assemble_genome.sh) for the script used to complete this part of the assignment. This was ran using hpc3. 
 
 ---
 
-## Part 3: Assembly Assessment
+### Assembly Assessment
+See script: [`scripts/assembly_assessment.sh`](scripts/assembly_assessment.sh) for the script used to complete this part of the assignment. This was ran using hpc3. 
 
-See script: [`scripts/assembly_assessment.sh`](scripts/assembly_assessment.sh)
+#### N50 Comparison
 
-### N50 Comparison
+The N50 for my assembly was found by running [`scripts/assembly_assessment.sh`](scripts/assembly_assessment.sh), but the 
+N50 for the Drosophila community reference's contig N50 was found by following the link provided in the assignment. It was given
+as 25.3 Mb, which in order to be converted to bp, has to be multiplied by 1,000,000, giving us 25,300,000 bp.
 
-| Assembly | N50 | Total Bases | Sequences | Ns |
-|---|---|---|---|---|
-| My Assembly (hifiasm) | 21,715,751 bp | 159,110,016 | 151 | 0 |
-| FlyBase r6.66 Contig | ~21,000,000 bp | ~143,000,000 | many | many |
+| Assembly | N50 |
+|---|---|
+| My Assembly (hifiasm) | 21,715,751 bp | 
+| Drosophila Community Contig | 25,300,000 bp |
 
-The hifiasm assembly achieves a comparable N50 to the FlyBase community reference and contains **zero Ns**, reflecting the gap-free nature of HiFi-based assemblies.
-
-### Contiguity Plot
+#### Contiguity Plot
+Additionally, [`scripts/assembly_assessment.sh`](scripts/assembly_assessment.sh) was also used to generate the contiguity plot.
 
 ![Contiguity Plot](plots/contiguity_plot.png)
 
-### BUSCO Scores (via compleasm, diptera_odb12)
+As a note, we expect the FlyBase Contig and FlyBase Scaffold line to be the same, thus there is overlap of the green and orange lines. 
+
+#### BUSCO Scores (via compleasm, diptera_odb12)
+See script: [`scripts/busco_score.sh`](scripts/busco_score.sh) for the script used to complete this part of the assignment. This was ran using hpc3. 
+
+Unfortunately, I was unable to use Busco and instead used compleasm as suggested.
 
 | Metric | My Assembly | FlyBase Contig |
 |---|---|---|
@@ -116,10 +113,6 @@ The hifiasm assembly achieves a comparable N50 to the FlyBase community referenc
 | Incomplete (I) | 0.00% (0) | 0.00% (0) |
 | Missing (M) | 0.08% (4) | 0.00% (0) |
 | **Total BUSCOs** | **5,066** | **5,066** |
-
-Both assemblies achieve ~99.4% BUSCO completeness against the diptera_odb12 lineage dataset, indicating high quality. The hifiasm assembly is missing 4 BUSCOs present in the FlyBase reference, which is negligible. The slightly lower duplication rate in the hifiasm assembly (0.39% vs 0.47%) is consistent with assembling a homozygous inbred iso-1 line.
-
-See script: [`scripts/busco_score.sh`](scripts/busco_score.sh)
 
 ---
 
