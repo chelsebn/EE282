@@ -37,7 +37,7 @@ plot_gc_hist <- function(df, label) {
 save_plot(plot_gc_hist(small, "≤100kb"), "gc_hist_small.png")
 save_plot(plot_gc_hist(large, ">100kb"), "gc_hist_large.png")
 
-# Plot Cumulative size (largest → smallest) 
+# Plot Cumulative size 
 plot_cdf <- function(df, label) {
   sorted_len <- sort(df$length, decreasing = TRUE)
   cum_size   <- cumsum(as.numeric(sorted_len))
