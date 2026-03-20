@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Translational Landscape of Ribosomal Protein Haploinsufficiency in *Drosophila melanogaster*
 
 **Chelsea Nguyen**
