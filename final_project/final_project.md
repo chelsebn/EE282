@@ -90,7 +90,7 @@ samples were aggregated and visualized using MultiQC (Ewels et al.
 these steps in the pipeline.
 
 | Step | Description | Script |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | 1 | Create conda environment | [`create_env.sh`](scr%20ipts/preprocessing/r%20naseq/create_env.sh) |
 | 2 | Quality assessment of raw reads | [`fastqc.sh`] (scripts/preprocessi ng/rnaseq/fastqc.sh) |
 | 3 | Adapter trimming and post-trim QC | [`t rim_galore.sh`](scri%20pts/preprocessing/rn%20aseq/trim_galore.sh) |
@@ -120,7 +120,7 @@ Please refer to the table below for the scripts used for each of these
 steps in the pipeline.
 
 | Step | Description | Script |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | 1 | Create conda environment | [`create_env.sh`](scri%20pts/preprocessing/ri%20boseq/create_env.sh) |
 | 2 | Build abundant sequence index (rRNA, tRNA, mtRNA) | [`make_a bundant.sh`](scripts%20/preprocessing/ribos%20eq/make_abundant.sh) |
 | 3 | Quality assessment of raw reads | [`fastqc.sh`](scripts/preprocessin%20g/riboseq/fastqc.sh) |
@@ -212,7 +212,7 @@ Comparisons with missing input files are automatically skipped with a
 warning.
 
 | Step | Description | Script |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | 1 | Clone deltaTE repository and create conda environment | [`cl one_deltaTE_repo.sh`](/scripts/analysis) |
 | 2 | Make input files to run deltaTE | [`make_inp ut_files.py`](/scrip%20ts/analysis/deltaTE) |
 | 3 | Run deltaTE on multiple comparisons | [`run_DTEG_ all.sh`](/scripts/an%20alysis/deltaTE/trans%20lational_regulation) |
@@ -356,7 +356,7 @@ four categories (equivalent to total DTEGs). The table of values is seen
 below.
 
 | Comparison | Forwarded | Exclusive | Intensified | Buffered | Total Sig. Genes |
-|------------|------------|------------|------------|------------|------------|
+|----|----|----|----|----|----|
 | Xrp1 vs. RpS3 | 477 | 398 | 354 | 1,032 | 2,261 |
 | Xrp1 vs. RpS3;Xrp1 | 314 | 294 | 192 | 1,259 | 2,059 |
 | Xrp1 vs. RpS12 | 37 | 45 | 15 | 428 | 525 |
@@ -521,62 +521,77 @@ future.
 
 ## References
 
--   Andrews S. 2010. FastQC: A quality control tool for high throughput
-    sequence data.
-    <http://www.bioinformatics.babraham.ac.uk/projects/fastqc/>.
--   Blighe K, Rana S, Lewis M. 2021. EnhancedVolcano: Publication-ready
-    volcano plots with enhanced colouring and labeling. R package.
-    <https://github.com/kevinblighe/EnhancedVolcano>.
--   Bolger AM, Lohse M, Usadel B. 2014. Trimmomatic: a flexible trimmer
-    for Illumina sequence data. *Bioinformatics* **30**: 2114–2120.
--   Chothani S, Schafer S, Adami E, Viswanathan S, Widjaja AA, Langley
-    SR, Tan J, Wang M, Quaife NM, Pua CJ, et al. 2019. deltaTE: A
-    detection engine for differential translation efficiency.
-    *Bioinformatics* **35**: 4851–4853.
--   Dobin A, Davis CA, Schlesinger F, Drenkow J, Zaleski C, Jha S, Batut
-    P, Chaisson M, Gingeras TR. 2013. STAR: ultrafast universal RNA-seq
-    aligner. *Bioinformatics* **29**: 15–21.
--   Ewels P, Magnusson M, Lundin S, Käller M. 2016. MultiQC: summarize
-    analysis results for multiple tools and samples in a single report.
-    *Bioinformatics* **32**: 3047–3048.
--   Genuth NR, Barna M. 2018. Heterogeneity and specialized functions of
-    translation machinery: from genes to organisms. *Nat Rev Genet*
-    **19**: 431–452.
--   Krueger F. 2012. Trim Galore: a wrapper tool around Cutadapt and
-    FastQC to consistently apply quality and adapter trimming to FastQ
-    files.
-    <http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/>.
--   Langmead B, Salzberg SL. 2012. Fast gapped-read alignment with
-    Bowtie 2. *Nat Methods* **9**: 357–359.
--   Lee S, Micalizzi D, Truesdell SS, Herve M, Bhatt DL, Bhatt DL,
-    Bhatt DL. 2021. Xrp1 is a transcription factor required for cell
-    competition-driven elimination of loser cells. *Nat Commun* **12**:
-    1–15.
--   Liao Y, Smyth GK, Shi W. 2014. featureCounts: an efficient general
-    purpose program for assigning sequence reads to genomic features.
-    *Bioinformatics* **30**: 923–930.
--   Love MI, Huber W, Anders S. 2014. Moderated estimation of fold
-    change and dispersion for RNA-seq data with DESeq2. *Genome Biol*
-    **15**: 550.
--   Martin M**.** 2011. Cutadapt removes adapter sequences from
-    high-throughput sequencing reads. *EMBnet.journal* **17**: 10–12.
--   Mills EW, Green R. 2017. Ribosomopathies: There's strength in
-    numbers. *Science* **358**: eaan2755.
--   Recasens-Alvarez C, Alexandre C, Kirkpatrick J, Nojima H, Huels DJ,
-    Bhatt DL, et al. 2021. Ribosomopathy-associated mutations cause
-    proteotoxic stress that is alleviated by TOR inhibition. *Nat Cell
-    Biol* **23**: 127–135.
--   Stein KC, Morales-Polanco D, van der Schoot J, Pechmann S,
-    Frydman J. 2022. Quantifying changes in ribosome density
-    distributions using ribosome profiling data. *STAR Protoc* **3**:
-    101235. 
--   Vlachos A, Ball S, Dahl N, Alter BP, Sheth S, Ramenghi U, et
-    al. 2010. Diagnosing and treating Diamond Blackfan anaemia: results
-    of an international clinical consensus conference. *Br J Haematol*
-    **148**: 981–992.
--   Wu T, Hu E, Xu S, Chen M, Guo P, Dai Z, et al. 2021. clusterProfiler
-    4.0: A universal enrichment tool for interpreting omics data.
-    *Innovation* **2**: 100141.
--   Zhang P, He D, Xu Y, Hou J, Pan BF, Wang Y, et al. 2017. Genome-wide
-    identification and differential analysis of translational
-    initiation. *Nat Commun* **8**: 1749.
+Andrews S. 2010. FastQC: a quality control tool for high throughput
+sequence data.
+<http://www.bioinformatics.babraham.ac.uk/projects/fastqc/> (Accessed
+March 20, 2026).
+
+Blighe K, Rana S, Lewis M. 2021. EnhancedVolcano: publication-ready
+volcano plots with enhanced colouring and labeling. R package.
+<https://github.com/kevinblighe/EnhancedVolcano>.
+
+Bolger AM, Lohse M, Usadel B. 2014. Trimmomatic: a flexible trimmer for
+Illumina sequence data. Bioinformatics 30: 2114–2120.
+
+Chothani S, Schafer S, Adami E, Viswanathan S, Widjaja AA, Langley SR,
+Tan J, Wang M, Quaife NM, Pua CJ, et al. 2019. deltaTE: a detection
+engine for differential translation efficiency. Bioinformatics 35:
+4851–4853.
+
+Dobin A, Davis CA, Schlesinger F, Drenkow J, Zaleski C, Jha S, Batut P,
+Chaisson M, Gingeras TR. 2013. STAR: ultrafast universal RNA-seq
+aligner. Bioinformatics 29: 15–21.
+
+Ewels P, Magnusson M, Lundin S, Käller M. 2016. MultiQC: summarize
+analysis results for multiple tools and samples in a single report.
+Bioinformatics 32: 3047–3048.
+
+Genuth NR, Barna M. 2018. Heterogeneity and specialized functions of
+translation machinery: from genes to organisms. Nat Rev Genet 19:
+431–452.
+
+Krueger F. 2012. Trim Galore: a wrapper tool around Cutadapt and FastQC
+to consistently apply quality and adapter trimming to FastQ files.
+<http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/>
+(Accessed March 20, 2026).
+
+Langmead B, Salzberg SL. 2012. Fast gapped-read alignment with Bowtie 2.
+Nat Methods 9: 357–359.
+
+Lee S, Micalizzi D, Truesdell SS, Herve M, Bhatt DL, et al. 2021. Xrp1
+is a transcription factor required for cell competition-driven
+elimination of loser cells. Nat Commun 12: 1–15.
+
+Liao Y, Smyth GK, Shi W. 2014. featureCounts: an efficient general
+purpose program for assigning sequence reads to genomic features.
+Bioinformatics 30: 923–930.
+
+Love MI, Huber W, Anders S. 2014. Moderated estimation of fold change
+and dispersion for RNA-seq data with DESeq2. Genome Biol 15: 550.
+
+Martin M. 2011. Cutadapt removes adapter sequences from high-throughput
+sequencing reads. EMBnet j 17: 10–12.
+
+Mills EW, Green R. 2017. Ribosomopathies: there's strength in numbers.
+Science 358: eaan2755.
+
+Recasens-Alvarez C, Alexandre C, Kirkpatrick J, Nojima H, Huels DJ,
+Bhatt DL, et al. 2021. Ribosomopathy-associated mutations cause
+proteotoxic stress that is alleviated by TOR inhibition. Nat Cell Biol
+23: 127–135.
+
+Stein KC, Morales-Polanco D, van der Schoot J, Pechmann S, Frydman J.
+2022. Quantifying changes in ribosome density distributions using
+ribosome profiling data. STAR Protoc 3: 101103.
+
+Vlachos A, Ball S, Dahl N, Alter BP, Sheth S, Ramenghi U, et al. 2010.
+Diagnosing and treating Diamond Blackfan anaemia: results of an
+international clinical consensus conference. Br J Haematol 148: 981–992.
+
+Wu T, Hu E, Xu S, Chen M, Guo P, Dai Z, et al. 2021. clusterProfiler
+4.0: a universal enrichment tool for interpreting omics data. The
+Innovation 2: 100141.
+
+Zhang P, He D, Xu Y, Hou J, Pan BF, Wang Y, et al. 2017. Genome-wide
+identification and differential analysis of translational initiation.
+Nat Commun 8: 1749.
