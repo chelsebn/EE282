@@ -1,0 +1,13 @@
+Sample ID	Condition	SeqType
+RpS3_Xrp1_A_Ribo	RpS3_Xrp1	RIBO
+RpS3_Xrp1_B_Ribo	RpS3_Xrp1	RIBO
+RpS3_Xrp1_C_Ribo	RpS3_Xrp1	RIBO
+Xrp1_A_Ribo	Xrp1	RIBO
+Xrp1_B_Ribo	Xrp1	RIBO
+Xrp1_C_Ribo	Xrp1	RIBO
+RpS3_Xrp1_A_RNA	RpS3_Xrp1	RNA
+RpS3_Xrp1_B_RNA	RpS3_Xrp1	RNA
+RpS3_Xrp1_C_RNA	RpS3_Xrp1	RNA
+Xrp1_A_RNA	Xrp1	RNA
+Xrp1_B_RNA	Xrp1	RNA
+Xrp1_C_RNA	Xrp1	RNA
